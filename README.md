@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
 | No.  | Version | Detail        |
 | :--: | :-----: | ------------- |
-|  1   |  0.0.1  | First version |
+|  1   |  1.0.0  | First version |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
