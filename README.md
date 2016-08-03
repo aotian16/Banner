@@ -10,9 +10,28 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 # How to use
 
-### 0, Download this project and import as a module
+### 0 Import
 
-### 1, Init fresco in Application
+#### 0.1 By jitpack.io
+
+```
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+
+```
+	dependencies {
+	        compile 'com.github.aotian16:Banner:v1.0.1'
+	}
+```
+
+#### 0.2 Or Download this project and import as a module
+
+### 1 Init fresco in Application
 
 ```java
 public class App extends Application {
@@ -25,13 +44,13 @@ public class App extends Application {
 }
 ```
 
-### 2, Add net permission in AndroidManifest
+### 2 Add net permission in AndroidManifest
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-### 3, Add BannerView in Layout
+### 3 Add BannerView in Layout
 
 ```xml
 <com.qefee.pj.banner.view.BannerView
@@ -40,7 +59,7 @@ public class App extends Application {
         android:layout_height="match_parent"/>
 ```
 
-### 4, Run BnnerView in java
+### 4 Run BnnerView in java
 
 ```java
 public class MainActivity extends AppCompatActivity {
