@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,11 +24,6 @@ import java.util.concurrent.TimeUnit;
  * @author tongjin
  */
 public class BannerView extends ViewPager {
-
-    /**
-     * log tag for BannerView
-     */
-    private static final String TAG = "BannerView";
 
     String[] imageUris;
     SimpleDraweeView[] simpleDraweeViews;
@@ -95,7 +89,6 @@ public class BannerView extends ViewPager {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                Log.i(TAG, "instantiateItem: instantiateItem + position = " + position);
                 SimpleDraweeView t = simpleDraweeViews[position % simpleDraweeViews.length];
                 container.addView(t);
 
@@ -107,7 +100,6 @@ public class BannerView extends ViewPager {
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                Log.i(TAG, "destroyItem: + position = " + position);
                 container.removeView((View) object);
             }
         });
