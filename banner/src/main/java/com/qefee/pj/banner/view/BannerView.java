@@ -1,7 +1,6 @@
 package com.qefee.pj.banner.view;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -25,7 +24,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class BannerView extends ViewPager {
 
-    String[] imageUris;
     SimpleDraweeView[] simpleDraweeViews;
 
     int currentItem;
@@ -40,7 +38,7 @@ public class BannerView extends ViewPager {
     }
 
     public void startAutoScroll() {
-        if (imageUris != null && imageUris.length > 1) {
+        if (origSize > 1) {
             stopAutoScroll();
             executor = Executors.newSingleThreadScheduledExecutor();
             Runnable command = new Runnable() {
@@ -71,10 +69,11 @@ public class BannerView extends ViewPager {
         }
     }
 
-    public void init(String[] imageUris) {
-        this.imageUris = imageUris;
-        int size = initSize();
-        initSimpleDraweeViews(size);
+    int origSize;
+    public void init(int size, final SimpleDraweeViewHandler handler) {
+        this.origSize = size;
+        int fitSize = initSize(size);
+        initSimpleDraweeViews(fitSize);
 
         this.setAdapter(new PagerAdapter() {
             @Override
@@ -92,8 +91,7 @@ public class BannerView extends ViewPager {
                 SimpleDraweeView t = simpleDraweeViews[position % simpleDraweeViews.length];
                 container.addView(t);
 
-                Uri uri = Uri.parse(BannerView.this.imageUris[position % BannerView.this.imageUris.length]);
-                t.setImageURI(uri);
+                handler.handle(position % origSize, t);
 
                 return t;
             }
@@ -123,7 +121,7 @@ public class BannerView extends ViewPager {
             }
         });
 
-        currentItem = imageUris.length * 1000000; // 取一个中间的大数字, 防止接近边界
+        currentItem = origSize * 1000000; // 取一个中间的大数字, 防止接近边界
         this.setCurrentItem(currentItem);
     }
 
@@ -132,7 +130,6 @@ public class BannerView extends ViewPager {
 
         for (int i = 0; i < tvs.length; i++) {
             tvs[i] = new SimpleDraweeView(getContext());
-//            tvs[i].getHierarchy().setPlaceholderImage(R.mipmap.ic_launcher); // 下载完成前的占位图
             tvs[i].getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
 
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -141,12 +138,12 @@ public class BannerView extends ViewPager {
         }
     }
 
-    private int initSize() {
+    private int initSize(int origSize) {
         int size;
-        if (imageUris.length > 3) {
-            size = imageUris.length;
-        } else if (imageUris.length > 1) {
-            size = imageUris.length * 2; // 小于等于3个时候, 需要扩大一倍, 防止出错
+        if (origSize > 3) {
+            size = origSize;
+        } else if (origSize > 1) {
+            size = origSize * 2; // 小于等于3个时候, 需要扩大一倍, 防止出错
         } else {
             size = 4;
         }

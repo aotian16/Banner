@@ -25,7 +25,7 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 ```
 	dependencies {
-	        compile 'com.github.aotian16:Banner:v1.0.1'
+	        compile 'com.github.aotian16:Banner:v1.0.2'
 	}
 ```
 
@@ -63,6 +63,11 @@ public class App extends Application {
 
 ```java
 public class MainActivity extends AppCompatActivity {
+    /**
+     * log tag for MainActivity
+     */
+    private static final String TAG = "MainActivity";
+
     BannerView bannerView;
 
     String[] imageUris = {
@@ -79,7 +84,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bannerView = (BannerView) findViewById(R.id.bannerView);
-        bannerView.init(imageUris);
+
+        bannerView.init(imageUris.length, new SimpleDraweeViewHandler() {
+            @Override
+            public void handle(int index, SimpleDraweeView view) {
+              // custom SimpleDraweeView here
+                view.getHierarchy().setPlaceholderImage(R.mipmap.ic_launcher); // placeholder image
+                view.setImageURI(imageUris[index]);
+            }
+        });
     }
 
     @Override
@@ -93,17 +106,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        bannerView.stopAutoScroll(); // stop scroll when pause
+        bannerView.stopAutoScroll(); // stop auto scroll when pause
     }
 }
 ```
 
 # Version
 
-| No.  | Version | Detail        |
-| :--: | :-----: | ------------- |
-|  1   |  1.0.0  | First version |
-|  2   |  1.0.1  | fix bug       |
+| No.  | Version | Detail              |
+| :--: | :-----: | ------------------- |
+|  1   |  1.0.0  | First version       |
+|  2   |  1.0.1  | fix bug             |
+|  3   |  1.0.2  | support custom view |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
