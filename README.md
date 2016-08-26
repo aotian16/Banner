@@ -113,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
 
 # Version
 
-| No.  | Version | Detail              |
-| :--: | :-----: | ------------------- |
-|  1   |  1.0.0  | First version       |
-|  2   |  1.0.1  | fix bug             |
-|  3   |  1.0.2  | support custom view |
+| No.  | Version | Detail                  |
+| :--: | :-----: | ----------------------- |
+|  1   |  1.0.0  | First version           |
+|  2   |  1.0.1  | fix bug                 |
+|  3   |  1.0.2  | support custom view     |
+|  4   |  1.0.3  | update to gradle 2.14.1 |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
