@@ -2,6 +2,8 @@
 
 # Banner
 
+![img](https://jitpack.io/v/aotian16/Banner.svg)
+
 Android unlimited and auto scroll banner based on [Fresco](https://github.com/facebook/fresco).
 
 # Image
