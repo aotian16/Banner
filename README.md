@@ -27,7 +27,7 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 ```
 	dependencies {
-	        compile 'com.github.aotian16:Banner:v1.0.3'
+	        compile 'com.github.aotian16:Banner:v1.0.4'
 	}
 ```
 
@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
 |  2   |  1.0.1  | fix bug                 |
 |  3   |  1.0.2  | support custom view     |
 |  4   |  1.0.3  | update to gradle 2.14.1 |
+|  5   |  1.0.4  | update to fresco:0.13.0 |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
