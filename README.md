@@ -27,7 +27,7 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 ```
 	dependencies {
-	        compile 'com.github.aotian16:Banner:v1.0.2'
+	        compile 'com.github.aotian16:Banner:v1.0.3'
 	}
 ```
 
