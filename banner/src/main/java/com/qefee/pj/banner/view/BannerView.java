@@ -37,7 +37,23 @@ public class BannerView extends ViewPager {
         super(context, attrs);
     }
 
+    /**
+     * start auto scroll.(with: delay = 2, period = 2, unit = TimeUnit.SECONDS)
+     * see {@link #startAutoScroll(long, long, TimeUnit)}
+     */
     public void startAutoScroll() {
+        startAutoScroll(2, 2, TimeUnit.SECONDS);
+    }
+
+    /**
+     * start auto scroll.
+     * @param initialDelay delay
+     * @param period period
+     * @param unit unit
+     */
+    public void startAutoScroll(long initialDelay,
+                                long period,
+                                TimeUnit unit) {
         if (origSize > 1) {
             stopAutoScroll();
             executor = Executors.newSingleThreadScheduledExecutor();
@@ -56,13 +72,13 @@ public class BannerView extends ViewPager {
                     });
                 }
             };
-            int delay = 2;
-            int period = 2;
-            TimeUnit timeUnit = TimeUnit.SECONDS;
-            executor.scheduleAtFixedRate(command, delay, period, timeUnit);
+            executor.scheduleAtFixedRate(command, initialDelay, period, unit);
         }
     }
 
+    /**
+     * stop auto scroll.
+     */
     public void stopAutoScroll() {
         if (executor != null) {
             executor.shutdownNow();
