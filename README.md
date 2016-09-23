@@ -16,7 +16,7 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 #### 0.1 By jitpack.io
 
-```
+```groovy
 	allprojects {
 		repositories {
 			...
@@ -25,9 +25,9 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 	}
 ```
 
-```
+```groovy
 	dependencies {
-	        compile 'com.github.aotian16:Banner:v1.0.5'
+	        compile 'com.github.aotian16:Banner:v1.0.6'
 	}
 ```
 
@@ -115,14 +115,15 @@ public class MainActivity extends AppCompatActivity {
 
 # Version
 
-| No.  | Version | Detail                  |
-| :--: | :-----: | ----------------------- |
-|  1   |  1.0.0  | First version           |
-|  2   |  1.0.1  | fix bug                 |
-|  3   |  1.0.2  | support custom view     |
-|  4   |  1.0.3  | update to gradle 2.14.1 |
-|  5   |  1.0.4  | update to fresco:0.13.0 |
-|  6   |  1.0.5  | update appcompat        |
+| No.  | Version | Detail                                   |
+| :--: | :-----: | ---------------------------------------- |
+|  1   |  1.0.0  | First version                            |
+|  2   |  1.0.1  | fix bug                                  |
+|  3   |  1.0.2  | support custom view                      |
+|  4   |  1.0.3  | update to gradle 2.14.1                  |
+|  5   |  1.0.4  | update to fresco:0.13.0                  |
+|  6   |  1.0.5  | update appcompat                         |
+|  7   |  1.0.6  | add method startAutoScroll(long,long,TimeUnit) |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
