@@ -27,7 +27,7 @@ Android unlimited and auto scroll banner based on [Fresco](https://github.com/fa
 
 ```groovy
 	dependencies {
-	        compile 'com.github.aotian16:Banner:v1.0.6'
+	        compile 'com.github.aotian16:Banner:v1.0.7'
 	}
 ```
 
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 |  5   |  1.0.4  | update to fresco:0.13.0                  |
 |  6   |  1.0.5  | update appcompat                         |
 |  7   |  1.0.6  | add method startAutoScroll(long,long,TimeUnit) |
+|  8   |  1.0.7  | update to fresco:0.14.1                  |
 
 # [LICENSE](https://github.com/aotian16/Banner/blob/master/LICENSE)
 
